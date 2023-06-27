@@ -4,7 +4,10 @@
 
 // fsモジュールの読み込み
 const fs = require('fs');
+// pathモジュールの読み込み
+const path = require('path');
 
+const distPath = path.resolve(__dirname, '../dist/test.txt');
 // console.log(__filename);
 
 // writeFileSync(ファイル名, 書き込むテキスト)
@@ -12,5 +15,5 @@ const fs = require('fs');
 // fs.writeFileSync('./test.txt', 'hello, node.js');
 
 // __dirnameを使って書き換え
-fs.writeFileSync(__dirname + '/test.txt', 'hello, node.js');
+fs.writeFileSync(distPath, 'hello, node.js');
 // console.log('hello, node.js');
