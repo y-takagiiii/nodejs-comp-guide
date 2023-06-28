@@ -20,6 +20,7 @@ const server = http.createServer(function (req, res) {
     res.end(`
       <form action="/result" method="POST">
         <input type="text" name="title">
+        <input type="text" name="description">
         <input type="submit">
       </form>
     `);
@@ -32,6 +33,17 @@ const server = http.createServer(function (req, res) {
       const params = new URLSearchParams(queryString);
       console.log(params);
       // console.log(params.has('param1'));
+    } else if(req.method === "POST") {
+      let data = "";
+      // dataイベント クライアントからデータを受け取ると発生するイベント
+      req.on("data", function(chunk) {
+        data += chunk;
+      });
+      // endイベント データの受取が終了すると発生するイベント
+      req.on("end", function(){
+        const params = new URLSearchParams(data);
+        console.log(params);
+      });
     }
     res.end(req.url);
   }
