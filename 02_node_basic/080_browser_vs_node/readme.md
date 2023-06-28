@@ -10,7 +10,7 @@
 - グローバルオブジェクトが異なる
   ブラウザ：window
   Node.js：global
-  
+
   globalThis：適宜グローバルオブジェクトを返却するキーワード
 
   クロスプラットフォームで動くコードは `Universal(Isomorphic) JavaScript` と呼ばれる
